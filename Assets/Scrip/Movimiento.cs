@@ -5,7 +5,7 @@ public class Movimiento : MonoBehaviour
     [SerializeField] CharacterController cC;
     [SerializeField] float velocidadDeMovimento;
     Vector3 movVector = Vector3.zero;
-    [SerializeField] LayerMask aQueLePegamosMiChan;
+    //[SerializeField] LayerMask aQueLePegamosMiChan;
     //---Collider----//
     [SerializeField] GameObject obj;
     //public float radioDeTaque;
@@ -34,10 +34,11 @@ public class Movimiento : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             obj.SetActive(true);
-            Invoke("ApagarhitBox", 3f);
+            Invoke("ApagarhitBox", 1.5f);
         }
+         
     }
-    void ApagarhtBox()
+    void ApagarhitBox()
     {
         obj.SetActive(false);
     }
