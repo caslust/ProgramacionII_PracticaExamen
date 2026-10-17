@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using static Invetario;
 
 public class Movimiento : MonoBehaviour
 {
@@ -14,7 +15,39 @@ public class Movimiento : MonoBehaviour
     //public Transform posicionDeLaMele;
 
     [SerializeField] float radioInteractuable;
+
+    //ObjetoInvetario 
+    [SerializeField] Invetario inventario;
+    public bool mateEnemigo;
+
+    private void Start()
+    {
+        inventario = GetComponent<Invetario>();
+    }
     void Update()
+    {
+        MovimientoWASDPlayer();
+        VistaPlayer();
+        GolpearObjeto();
+        if (mateEnemigo)
+        {
+            inventario.DesbloquearObjetos();
+            mateEnemigo = false;
+        }
+         
+    }
+
+    private void GolpearObjeto()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            obj.SetActive(true);
+            Invoke("ApagarhitBox", 1.5f);
+            Interacion();
+        }
+    }
+
+    private void MovimientoWASDPlayer()
     {
         //Dar Direcion 
         movVector.x = Input.GetAxis("Horizontal");
@@ -22,8 +55,10 @@ public class Movimiento : MonoBehaviour
         movVector.z = Input.GetAxis("Vertical");
 
         cC.Move(movVector * velocidadDeMovimento * Time.deltaTime);
+    }
 
-
+    private void VistaPlayer()
+    {
         Ray rayoPoscionCursorDelMaus = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitInfo;
         if (Physics.Raycast(rayoPoscionCursorDelMaus, out hitInfo, 100f))
@@ -32,14 +67,8 @@ public class Movimiento : MonoBehaviour
             posicion.y = transform.position.y;
             transform.LookAt(posicion);
         }
-         
-        if (Input.GetMouseButtonDown(0))
-        {
-            obj.SetActive(true);
-            Invoke("ApagarhitBox", 1.5f);
-        }
-        Interacion();
     }
+
     void ApagarhitBox()
     {
         obj.SetActive(false);
@@ -83,7 +112,7 @@ public class Movimiento : MonoBehaviour
             interactuableMasSercanoDano = null;
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetMouseButtonDown(0))
         {
 
             interactuableMasSercano?.Interac();

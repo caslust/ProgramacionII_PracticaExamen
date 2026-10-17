@@ -399,7 +399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineFollow
   TrackerSettings:
     BindingMode: 4
-    PositionDamping: {x: 1, y: 1, z: 1}
+    PositionDamping: {x: 0, y: 0, z: 0}
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
@@ -729,6 +729,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 775a685aca344ef40a0ef0d6eb1ffc10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemigo
+  Recurso: {fileID: 6517306240606226039, guid: c9e6b2849c8224d40bdbf2c9aadc702a, type: 3}
+  porcentajeDeRecurso: 100
   vidaEnemigo: 100
   dano: 50
 --- !u!1 &755430334
@@ -908,8 +910,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 3.4063132, z: 1}
+  m_Center: {x: 0, y: -1.2031544, z: 0}
 --- !u!114 &826305137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -917,7 +919,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 826305134}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eec681afd7f4cec44962f305a071d66f, type: 3}
   m_Name: 
@@ -982,6 +984,7 @@ GameObject:
   - component: {fileID: 968105281}
   - component: {fileID: 968105283}
   - component: {fileID: 968105282}
+  - component: {fileID: 968105284}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1025,6 +1028,8 @@ MonoBehaviour:
     m_Bits: 128
   obj: {fileID: 826305134}
   radioInteractuable: 1
+  inventario: {fileID: 0}
+  mateEnemigo: 0
 --- !u!143 &968105283
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1050,6 +1055,24 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &968105284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968105280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b6246fa1533184f8a3c5f279d0877d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Invetario
+  recursos: 0
+  objetos1: {fileID: 11400000, guid: 15f2abb9436ca4742ae9857f9a75735e, type: 2}
+  objetos2: {fileID: 11400000, guid: 15f2abb9436ca4742ae9857f9a75735e, type: 2}
+  objetos3: {fileID: 11400000, guid: 8e8397015eaa3214faef5a43cd7645b9, type: 2}
+  objetos4: {fileID: 11400000, guid: ea5cd0bdb9b94024c9375d8986f83b0f, type: 2}
+  tieneObjetos: 0
 --- !u!1 &997838296
 GameObject:
   m_ObjectHideFlags: 0
