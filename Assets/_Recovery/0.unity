@@ -1166,7 +1166,7 @@ MonoBehaviour:
   enemigo: {fileID: 4040108028277804709, guid: d4d93642fd7f51c4db122e87827f850e, type: 3}
   enemigoOleanaDeNoche: {fileID: 4040108028277804709, guid: e5e518044d25e5547a8cac4da3d27f2e, type: 3}
   posicionEnemigo: {fileID: 1307579576}
-  cuantosEnemigosQuieresQueSalgan: 2
+  cuantosEnemigosQuieresQueSalgan: 4
   comienzo: 0
   EsperaDeCadaIntaciamiento: 2
   CuantosEnemigosQuieres: 10
